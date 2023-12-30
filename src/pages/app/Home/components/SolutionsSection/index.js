@@ -47,7 +47,7 @@ const SolutionLeft = ({ heading, description, link, isImageFirst }) => (
         <p className='m-0'>{description}</p>
       </div>
       <Space direction='vertical'>
-        <Button type={'primary'} onClick={() => window.open(link, '_blank').focus()}>
+        <Button type={'primary btn-shadow'} onClick={() => window.open(link, '_blank').focus()}>
           {'Visit Website'}
         </Button>
       </Space>

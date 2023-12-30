@@ -105,7 +105,6 @@
       color: #adadad;
       font-size: $font-size-normal;
     }
-
   }
 
   button {
@@ -249,7 +248,6 @@
         .next {
           margin-left: 12px;
         }
-
 
         .previous,
         .next {
@@ -397,7 +395,6 @@
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 30px;
-
 
     label {
       margin: 0;
@@ -580,9 +577,27 @@
     right: 0;
     background-color: #00000030;
   }
+}
 
+.home-block-design-left {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 140vw;
+  width: 50vw;
+  z-index: -1;
+  background-color: $primary-color;
+  clip-path: polygon(80% 0, 100% 0, 100% 100%, 30% 51%);
 
+}
 
-
-
+.home-block-design-right {
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  height: 140vw;
+  width: 50vw;
+  z-index: -1;
+  background-color: lighten($color: $grey, $amount: 50%);
+  clip-path: polygon(66% 49%, 0 100%, 0 0);
 }

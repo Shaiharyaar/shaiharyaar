@@ -26,6 +26,8 @@ const Home = () => {
       {/* <EPrimeDataSection onInView={handleInView} /> */}
       {/* <TrustedSection onInView={handleInView} /> */}
       <ContactSection onInView={handleInView} />
+      <div className={'home-block-design-right'} />
+      <div className={'home-block-design-left'} />
     </>
   )
 }
