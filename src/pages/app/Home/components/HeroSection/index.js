@@ -38,10 +38,22 @@ const HeroSection = ({ onInView }) => {
               TypeScript, join me on a journey of code, design, and endless possibilities. Let's
               build something extraordinary together.
             </p>
-            <Button type='primary' className='custom-btn btn-shadow'>
+            <Button
+              type='primary'
+              className='custom-btn btn-shadow'
+              onClick={() =>
+                window.open('https://www.linkedin.com/in/shaiharyaar-ahmad-973a60195/', '_blank')
+              }
+            >
               View LinkedIn Profile
             </Button>
-            <Button type='default' className='custom-btn ml-10'>
+            <Button
+              type='default'
+              className='custom-btn ml-10'
+              onClick={() => {
+                window.open('https://publuu.com/flip-book/342371/786317/page/1', '_blank')
+              }}
+            >
               Look at CV
             </Button>
           </div>
