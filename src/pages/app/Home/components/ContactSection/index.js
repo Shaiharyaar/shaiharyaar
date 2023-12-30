@@ -49,7 +49,7 @@ const ContactLeft = () => {
       }}
       className='contact-left'
     >
-      <h1 className='text-xlarge'>Contact Us</h1>
+      <h1 className='text-xlarge'>Contact Me</h1>
       <p className='line-height-25'>
         Feel free to reach out! Whether you have questions, collaboration ideas, or just want to
         connect, I'm here. Your feedback and inquiries are always welcome. Drop me a message, and
