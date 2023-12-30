@@ -1,0 +1,9 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as LearnMoreSection } from "./LearnMoreSection";
+export { default as SolutionsSection } from "./SolutionsSection";
+export { default as GrowthSection } from "./GrowthSection";
+export { default as TestimonialsSection } from "./TestimonialsSection";
+export { default as EPrimeDataSection } from "./EPRimeDataSection";
+export { default as PlanSection } from "./PlanSection";
+export { default as ContactSection } from "./ContactSection";
+export { default as TrustedSection } from "./TrustedSection";

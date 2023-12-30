@@ -1,0 +1,103 @@
+[
+  {
+    "isPro": true,
+    "saveAmount": "$40",
+    "title": "Base",
+    "amount": "$123",
+    "frequency": "month",
+    "btnText": "Choose",
+    "features": [
+      {
+        "iconName": "tick",
+        "text": "Upload Video with HD Resolution",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Attachment & Post Scheduling",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Set your rates",
+        "isAvailable": false
+      },
+      {
+        "iconName": "cross",
+        "text": "Exclusive Deals",
+        "isAvailable": false
+      },
+      {
+        "iconName": "cross",
+        "text": "Advanced Statistics",
+        "isAvailable": false
+      }
+    ]
+  },
+  {
+    "title": "Pro",
+    "amount": "$123",
+    "frequency": "month",
+    "btnText": "Try 1 month",
+    "features": [
+      {
+        "iconName": "tick",
+        "text": "Upload Video with HD Resolution",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Attachment & Post Scheduling",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Set your rates",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Exclusive Deals",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Advanced Statistics",
+        "isAvailable": false
+      }
+    ]
+  },
+  {
+    "title": "Enterprise",
+    "amount": "$123",
+    "frequency": "month",
+    "btnText": "Choose",
+    "features": [
+      {
+        "text": "Upload Video with 4K Resolution",
+        "iconName": "tick",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Attachment & Post Scheduling",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Set your rates",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Exclusive Deals",
+        "isAvailable": true
+      },
+      {
+        "iconName": "tick",
+        "text": "Advanced Statistics",
+        "isAvailable": true
+      }
+    ]
+  }
+]

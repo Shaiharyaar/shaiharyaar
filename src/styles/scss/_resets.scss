@@ -1,0 +1,54 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::placeholder {
+  font-family: 'Poppins';
+}
+
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.ant-form-item-explain-error {
+  font-size: $font-size-small;
+}
+
+.ant-form-item-label {
+  font-weight: $font-weight-bold;
+}
+
+button {
+  cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #ececec inset !important;
+}
+
+mark {
+  background-color: transparent;
+}
+
+.ant-radio-group {
+  .ant-radio-wrapper {
+    &:last-child {
+      margin-right: 0;
+    }
+
+    span {
+      padding-right: 0;
+    }
+  }
+}

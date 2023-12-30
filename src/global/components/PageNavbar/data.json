@@ -1,0 +1,19 @@
+{
+  "menuItems": [
+    {
+      "id": "1",
+      "title": "Home",
+      "href": "#"
+    },
+    {
+      "id": "2",
+      "title": "My Projects",
+      "href": "#my-projects"
+    },
+    {
+      "id": "5",
+      "title": "Contact",
+      "href": "#contact-section"
+    }
+  ]
+}
