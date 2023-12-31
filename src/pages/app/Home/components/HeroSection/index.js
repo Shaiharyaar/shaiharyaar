@@ -51,7 +51,10 @@ const HeroSection = ({ onInView }) => {
               type='default'
               className='custom-btn ml-10'
               onClick={() => {
-                window.open('https://publuu.com/flip-book/342371/786317/page/1', '_blank')
+                window.open(
+                  'https://www.canva.com/design/DAF4lf5-H_0/0-j2OjXL603mKJNahdeE4Q/edit?utm_content=DAF4lf5-H_0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
+                  '_blank'
+                )
               }}
             >
               Look at CV
