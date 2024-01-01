@@ -55,14 +55,16 @@
   align-items: center;
   text-align: center;
 
+  h1,
   h2,
   p {
     margin: 0;
   }
 
   .sub-heading {
-    margin-top: 5px;
+    margin-top: 10px;
     max-width: 500px;
+    font-size: 18px;
   }
 }
 
@@ -579,19 +581,18 @@
   }
 }
 
-.home-block-design-left {
+.home-block-design-right {
   position: absolute;
   top: 0;
   right: 0;
   height: 140vw;
   width: 50vw;
   z-index: -1;
-  background-color: $primary-color;
+  background-color: lighten($color: $primary-color, $amount: 30%);
   clip-path: polygon(80% 0, 100% 0, 100% 100%, 30% 51%);
-
 }
 
-.home-block-design-right {
+.home-block-design-left {
   position: absolute;
   top: 2000px;
   left: 0;

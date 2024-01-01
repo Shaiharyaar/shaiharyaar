@@ -1,5 +1,5 @@
 import { Button, Col, Row } from 'antd'
-import { HERO_RIGHT_IMAGE } from 'assets'
+import { PROFILE_IMAGE } from 'assets'
 import { useInView } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
@@ -13,7 +13,7 @@ const HeroSection = ({ onInView }) => {
 
   return (
     <section className='hero-section container' id='#' ref={containerRef}>
-      <Row className='flex-1'>
+      <Row className='flex-1' gutter={[30, 10]}>
         <Col
           xs={{
             order: 2,
@@ -64,15 +64,19 @@ const HeroSection = ({ onInView }) => {
         <Col
           xs={{
             order: 1,
-            span: 24,
+            span: 16,
+            offset: 4,
           }}
           md={{
             order: 1,
             span: 10,
+            offset: 0,
           }}
           className='hero-right'
         >
-          <img src={HERO_RIGHT_IMAGE} alt='' />
+          <div className={'image-container'}>
+            <img src={PROFILE_IMAGE} alt={'profile '} />
+          </div>
         </Col>
       </Row>
     </section>
