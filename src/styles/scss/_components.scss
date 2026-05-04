@@ -43,9 +43,60 @@
 }
 
 .custom-btn {
+  position: relative;
   height: 55px;
   font-weight: $font-weight-bold;
   font-size: $font-size-normal;
+  border-radius: 14px !important;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease !important;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &.ant-btn-primary {
+    border: none !important;
+    background-image: linear-gradient(115deg, var(--color-primary, #7c3aed), var(--color-accent-2, #c026d3), var(--color-accent, #a855f7), var(--color-primary, #7c3aed)) !important;
+    background-size: 220% 100% !important;
+    background-position: 0% 50% !important;
+    box-shadow: 0 10px 32px var(--color-glow, rgba(124, 58, 237, 0.35)) !important;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, 0.22) 50%, transparent 65%);
+      transform: translateX(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-position: 100% 50% !important;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px var(--color-glow, rgba(124, 58, 237, 0.45)) !important;
+    }
+
+    &:hover::before {
+      opacity: 1;
+      animation: btn-shine-sweep 0.85s ease forwards;
+    }
+  }
+
+  &.ant-btn-default {
+    border: 2px solid transparent !important;
+    background: linear-gradient(var(--color-bg-elevated), var(--color-bg-elevated)) padding-box,
+      linear-gradient(125deg, var(--color-primary), var(--color-accent), var(--color-accent-2)) border-box !important;
+    color: var(--color-text) !important;
+    box-shadow: 0 4px 18px var(--color-shadow, rgba(49, 10, 87, 0.1));
+
+    &:hover {
+      color: var(--color-primary) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px var(--color-shadow, rgba(49, 10, 87, 0.15));
+    }
+  }
 }
 
 .section-heading-wrapper {
@@ -61,10 +112,55 @@
     margin: 0;
   }
 
+  h1.primary-text-color {
+    background: linear-gradient(90deg, var(--color-primary, #7c3aed), var(--color-accent-2, #c026d3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .sub-heading {
     margin-top: 10px;
     max-width: 500px;
     font-size: 18px;
+    color: var(--color-text-muted, #{$subtle-color-text});
+  }
+
+  &.section-heading-wrapper--interactive {
+    transition: transform 0.4s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+@keyframes section-heading-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.section-heading-wrapper--interactive h1 {
+  animation: section-heading-drift 11s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-heading-wrapper--interactive h1 {
+    animation: none !important;
+  }
+
+  .section-heading-wrapper--interactive:hover {
+    transform: none !important;
+  }
+
+  .custom-btn.ant-btn-primary::before {
+    display: none !important;
   }
 }
 
@@ -579,26 +675,4 @@
     right: 0;
     background-color: #00000030;
   }
-}
-
-.home-block-design-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 140vw;
-  width: 50vw;
-  z-index: -1;
-  background-color: lighten($color: $primary-color, $amount: 30%);
-  clip-path: polygon(80% 0, 100% 0, 100% 100%, 30% 51%);
-}
-
-.home-block-design-left {
-  position: absolute;
-  top: 2000px;
-  left: 0;
-  height: 140vw;
-  width: 50vw;
-  z-index: -1;
-  background-color: lighten($color: $grey, $amount: 50%);
-  clip-path: polygon(66% 49%, 0 100%, 0 0);
 }

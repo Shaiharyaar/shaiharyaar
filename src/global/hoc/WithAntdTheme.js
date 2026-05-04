@@ -1,11 +1,13 @@
-import { ConfigProvider } from "antd";
-import antdVariables from "styles/antd/variables.json";
-import React from "react";
+import { ConfigProvider } from 'antd'
+import React from 'react'
+import { useTheme } from 'theme/ThemeProvider'
+import { getAntdThemeConfig } from 'theme/tokens'
 
 const WithAntdTheme = ({ children }) => {
-  return (
-    <ConfigProvider theme={{ token: antdVariables }}>{children}</ConfigProvider>
-  );
-};
+  const { theme } = useTheme()
+  const themeConfig = getAntdThemeConfig(theme)
 
-export default WithAntdTheme;
+  return <ConfigProvider theme={themeConfig}>{children}</ConfigProvider>
+}
+
+export default WithAntdTheme

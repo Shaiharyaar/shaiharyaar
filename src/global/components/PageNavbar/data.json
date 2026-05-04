@@ -3,12 +3,17 @@
     {
       "id": "1",
       "title": "Home",
-      "href": "#"
+      "href": "#home"
     },
     {
       "id": "2",
       "title": "My Projects",
       "href": "#my-projects"
+    },
+    {
+      "id": "4",
+      "title": "Skills",
+      "href": "#skills"
     },
     {
       "id": "5",

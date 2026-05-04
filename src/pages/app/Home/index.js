@@ -5,6 +5,7 @@ import {
   HeroSection,
   // LearnMoreSection,
   // PlanSection,
+  SkillsMarqueeSection,
   SolutionsSection,
   // TestimonialsSection,
   // TrustedSection,
@@ -21,13 +22,12 @@ const Home = () => {
       {/* <LearnMoreSection onInView={handleInView} /> */}
       {/* <PlanSection onInView={handleInView} /> */}
       <SolutionsSection onInView={handleInView} />
+      <SkillsMarqueeSection onInView={handleInView} />
       {/* <GrowthSection onInView={handleInView} /> */}
       {/* <TestimonialsSection onInView={handleInView} /> */}
       {/* <EPrimeDataSection onInView={handleInView} /> */}
       {/* <TrustedSection onInView={handleInView} /> */}
       <ContactSection onInView={handleInView} />
-      <div className={'home-block-design-right'} />
-      <div className={'home-block-design-left'} />
     </>
   )
 }

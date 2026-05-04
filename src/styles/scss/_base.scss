@@ -1,13 +1,16 @@
 h1 {
   font-size: $font-size-xlarge;
+  color: var(--color-text, #{$default-text-color});
 }
 
 h2 {
   font-size: $font-size-large;
+  color: var(--color-text, #{$default-text-color});
 }
 
 h3 {
   font-size: $font-size-medium;
+  color: var(--color-text, #{$default-text-color});
 }
 
 h4 {
@@ -20,7 +23,7 @@ h5 {
 
 p {
   font-size: $font-size-base;
-  color: $default-text-color;
+  color: var(--color-text-muted, #{$default-text-color});
 }
 
 

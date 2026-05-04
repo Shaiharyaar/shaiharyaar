@@ -1,0 +1,139 @@
+{
+  "sectionTitle": "Skills",
+  "sectionSub": "A cross-section of tools and habits I use to ship, refine, and collaborate — mixed the way real projects feel.",
+  "skills": [
+    {
+      "id": "socketio",
+      "title": "Socket.io",
+      "description": "Rooms, fallbacks, and evented APIs for realtime features."
+    },
+    {
+      "id": "problem-solving",
+      "title": "Problem-solving & analytics",
+      "description": "Framing messy goals into measurable steps and clear tradeoffs.",
+      "core": true
+    },
+    {
+      "id": "pm",
+      "title": "Project management",
+      "description": "Roadmaps, stakeholders, and keeping delivery predictable."
+    },
+    {
+      "id": "leadership",
+      "title": "Team leadership",
+      "description": "Aligning people on scope, quality, and pace without losing empathy.",
+      "core": true
+    },
+    {
+      "id": "next",
+      "title": "Next.js",
+      "description": "Routing, SSR/SSG, and production-ready React apps."
+    },
+    {
+      "id": "detail",
+      "title": "Attention to detail",
+      "description": "Edge cases, copy, and visuals that signal care in the product.",
+      "core": true
+    },
+    {
+      "id": "express",
+      "title": "Express.js",
+      "description": "Lean HTTP APIs, middleware pipelines, and sensible defaults."
+    },
+    {
+      "id": "adapt",
+      "title": "Quick adaptation",
+      "description": "Picking up new stacks, domains, and constraints without losing momentum.",
+      "core": true
+    },
+    {
+      "id": "perf",
+      "title": "Performance optimization",
+      "description": "Profiling, bundle discipline, and UX that stays fast under load."
+    },
+    {
+      "id": "creativity",
+      "title": "Creativity",
+      "description": "Exploring alternatives when the obvious path is blocked or boring.",
+      "core": true
+    },
+    {
+      "id": "mongo",
+      "title": "MongoDB",
+      "description": "Document modeling, indexing, and pragmatic data shapes."
+    },
+    {
+      "id": "react",
+      "title": "React.js",
+      "description": "Component-driven UIs, hooks, and performance-minded rendering.",
+      "core": true
+    },
+    {
+      "id": "prisma",
+      "title": "Prisma",
+      "description": "Type-safe data access and migrations without losing SQL power."
+    },
+    {
+      "id": "react-native",
+      "title": "React Native",
+      "description": "Shared patterns across web and mobile with native polish where it counts.",
+      "core": true
+    },
+    {
+      "id": "sql",
+      "title": "SQL",
+      "description": "Relational modeling, joins, and queries that stay explainable."
+    },
+    {
+      "id": "node",
+      "title": "Node.js",
+      "description": "Services, tooling, and I/O-heavy work on a familiar JS runtime.",
+      "core": true
+    },
+    {
+      "id": "php",
+      "title": "PHP",
+      "description": "Legacy-friendly backends and pragmatic server-side scripting."
+    },
+    {
+      "id": "ts",
+      "title": "TypeScript",
+      "description": "Types that catch regressions early and document intent in code.",
+      "core": true
+    },
+    {
+      "id": "firebase",
+      "title": "Firebase",
+      "description": "Auth, hosting, and BaaS pieces for fast iteration and small teams.",
+      "core": true
+    },
+    {
+      "id": "flutter",
+      "title": "Flutter",
+      "description": "Cross-platform UI with consistent layout and animation primitives."
+    },
+    {
+      "id": "motion",
+      "title": "UI animation & motion",
+      "description": "Motion that guides attention instead of distracting from tasks.",
+      "core": true
+    },
+    {
+      "id": "blitz",
+      "title": "Blitz.js",
+      "description": "Full-stack React conventions and rapid feature scaffolding."
+    },
+    {
+      "id": "ws",
+      "title": "WebSockets",
+      "description": "Live updates, presence, and low-latency client–server streams.",
+      "core": true
+    },
+    {
+      "id": "webrtc",
+      "title": "WebRTC",
+      "description": "Peer connections, media tracks, and real-time collaboration patterns.",
+      "core": true
+    }
+  ]
+}

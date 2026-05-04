@@ -1,18 +1,51 @@
-import { Col, Row, Grid, Space, Button } from 'antd'
+import { ArrowRightOutlined, LinkOutlined } from '@ant-design/icons'
+import { gsap, useGSAP } from 'animations/registerGsap'
+import { Button, Modal, Space, Tag } from 'antd'
 import { SectionHeading } from 'global/components'
-import solutions from './data.json'
-import { useEffect, useRef } from 'react'
+import { usePrefersReducedMotion } from 'hooks'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useInView } from 'framer-motion'
 
-const { useBreakpoint } = Grid
+import solutions from './data.json'
+
+const VISIBLE_TAGS = 3
+
 const SolutionsSection = ({ onInView }) => {
-  const screens = useBreakpoint()
-  const containerRef = useRef()
+  const containerRef = useRef(null)
   const isInView = useInView(containerRef)
+  const reducedMotion = usePrefersReducedMotion()
+  const [activeSolution, setActiveSolution] = useState(null)
+
+  const closeModal = useCallback(() => setActiveSolution(null), [])
 
   useEffect(() => {
     onInView(isInView, '#my-projects')
   }, [isInView, onInView])
+
+  useGSAP(
+    () => {
+      if (reducedMotion) return undefined
+      const root = containerRef.current
+      if (!root) return undefined
+      const ctx = gsap.context(() => {
+        root.querySelectorAll('.project-card').forEach((card) => {
+          gsap.from(card, {
+            y: 56,
+            opacity: 0,
+            duration: 0.75,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
+          })
+        })
+      }, root)
+      return () => ctx.revert()
+    },
+    { dependencies: [reducedMotion] }
+  )
 
   return (
     <section className='projects-section container pt-100' id='my-projects' ref={containerRef}>
@@ -21,55 +54,138 @@ const SolutionsSection = ({ onInView }) => {
         subHeading='Explore my diverse portfolio showcasing innovative solutions and cutting-edge software development'
       />
 
-      <Row className='solutions-listing' gutter={[0, 60]}>
+      <div className='projects-grid' role='list'>
         {solutions.map((solution, index) => (
-          <Col key={index} span={24} className={'mt-40'}>
-            {<SolutionSection {...solution} key={solution?.heading} isMdBreakpoint={screens.md} />}
-          </Col>
+          <div key={solution.heading} className='projects-grid__cell' role='listitem'>
+            <ProjectCard solution={solution} index={index} onOpenDetails={setActiveSolution} />
+          </div>
         ))}
-      </Row>
+      </div>
+
+      <ProjectDetailModal solution={activeSolution} onClose={closeModal} />
     </section>
   )
 }
 
-const SolutionSection = (props) => (
-  <Row gutter={[30, 10]}>
-    <SolutionLeft {...props} />
-    <SolutionRight {...props} />
-  </Row>
-)
+const ProjectCard = ({ solution, index, onOpenDetails }) => {
+  const { heading, summary, img, role, year, stack } = solution
+  const imgSrc = require(`../../../../../assets/directory/images/${img}`)
+  const stackList = stack || []
+  const visibleStack = stackList.slice(0, VISIBLE_TAGS)
+  const extraCount = stackList.length - visibleStack.length
 
-const SolutionLeft = ({ heading, description, link, isImageFirst }) => (
-  <Col xs={24} md={10} order={isImageFirst ? 1 : 0} className={'information-container'}>
-    <h2>{heading}</h2>
-    <Space direction='vertical'>
-      <div className='feature-text'>
-        <p className='m-0'>{description}</p>
+  const open = () => onOpenDetails(solution)
+
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      open()
+    }
+  }
+
+  return (
+    <article
+      className='project-card project-card--compact'
+      style={{ animationDelay: `${index * 0.05}s` }}
+      role='button'
+      tabIndex={0}
+      aria-label={`${heading}: view full project details`}
+      onClick={open}
+      onKeyDown={onKeyDown}
+    >
+      <div className='project-card__media' role='presentation'>
+        <img src={imgSrc} alt='' />
+        <div className='project-card__media-overlay'>
+          <span>View details</span>
+          <ArrowRightOutlined />
+        </div>
       </div>
-      <Space direction='vertical'>
-        <Button type={'primary btn-shadow'} onClick={() => window.open(link, '_blank').focus()}>
-          {'Visit Website'}
-        </Button>
-      </Space>
-    </Space>
-  </Col>
-)
+      <div className='project-card__body'>
+        <div className='project-card__meta'>
+          {year && <span className='project-card__year'>{year}</span>}
+          {role && <span className='project-card__role'>{role}</span>}
+        </div>
+        <h2 className='project-card__title'>{heading}</h2>
+        <Space size={[4, 4]} wrap className='project-card__tags'>
+          {visibleStack.map((tech) => (
+            <Tag key={tech} className='project-tech-tag'>
+              {tech}
+            </Tag>
+          ))}
+          {extraCount > 0 && (
+            <Tag className='project-tech-tag project-tech-tag--more'>{`+${extraCount}`}</Tag>
+          )}
+        </Space>
+        <p className='project-card__summary'>{summary}</p>
+        <span className='project-card__hint'>Click for full write-up and link</span>
+      </div>
+    </article>
+  )
+}
 
-const SolutionRight = ({ isMdBreakpoint, img, link, isImageFirst }) => (
-  <Col
-    xs={24}
-    md={14}
-    className={`feature-image-wrapper ${isImageFirst ? '' : 'odd'} ${
-      isMdBreakpoint ? 'isMd' : ''
-    } `}
-    order={isImageFirst ? 0 : 1}
-  >
-    <img
-      src={require(`../../../../../assets/directory/images/${img}`)}
-      onClick={() => window.open(link, '_blank').focus()}
-      alt='feature'
-    />
-  </Col>
-)
+const ProjectDetailModal = ({ solution, onClose }) => {
+  const open = Boolean(solution)
+  const imgSrc = solution ? require(`../../../../../assets/directory/images/${solution.img}`) : ''
+
+  return (
+    <Modal
+      title={solution?.heading}
+      open={open}
+      onCancel={onClose}
+      destroyOnClose
+      centered
+      width='min(720px, 94vw)'
+      zIndex={105000}
+      className='project-detail-modal'
+      wrapClassName='project-detail-modal-wrap'
+      footer={
+        solution ? (
+          <>
+            <Button type='default' className='project-detail-modal__btn' onClick={onClose}>
+              Close
+            </Button>
+            <Button
+              type='primary'
+              className='custom-btn btn-shadow project-detail-modal__btn project-detail-modal__btn--primary'
+              icon={<LinkOutlined />}
+              href={solution.link}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Visit website
+            </Button>
+          </>
+        ) : null
+      }
+    >
+      {solution && (
+        <div className='project-detail-modal__body-inner'>
+          <div className='project-detail-modal__hero'>
+            <img src={imgSrc} alt='' />
+          </div>
+          <div className='project-detail-modal__meta'>
+            {solution.year && <span className='project-detail-modal__year'>{solution.year}</span>}
+            {solution.role && <span className='project-detail-modal__role'>{solution.role}</span>}
+          </div>
+          <Space size={[6, 6]} wrap align='start' className='project-detail-modal__tags'>
+            {(solution.stack || []).map((tech) => (
+              <Tag key={tech} className='project-tech-tag'>
+                {tech}
+              </Tag>
+            ))}
+          </Space>
+          {solution.highlights?.length > 0 && (
+            <ul className='project-detail-modal__highlights'>
+              {solution.highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          )}
+          <p className='project-detail-modal__description'>{solution.description}</p>
+        </div>
+      )}
+    </Modal>
+  )
+}
 
 export default SolutionsSection

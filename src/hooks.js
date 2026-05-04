@@ -73,5 +73,6 @@ const useLaterEffect = (callback, dependencyArray) => {
   }, dependencyArray)
 }
 
+export { usePrefersReducedMotion } from './hooks/usePrefersReducedMotion'
 export { useDebounce, useLaterEffect, usePageTop, useScrollToTop }
 

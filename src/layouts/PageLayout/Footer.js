@@ -54,14 +54,14 @@ const contactInfo = [
   {
     label: 'instagram',
     icon: <InstagramFilled />,
-    tooltipText: 'Instagram: @salad_sherr',
-    value: 'https://www.instagram.com/salad_sherr/',
+    tooltipText: 'Instagram: @salad.sherr',
+    value: 'https://www.instagram.com/salad.sherr/',
   },
   {
     label: 'facebook',
     icon: <FacebookFilled />,
     tooltipText: 'Facebook Profile',
-    value: 'https://www.facebook.com/shaiharyaarahmad.ahmad/',
+    value: 'https://www.facebook.com/salad.sherr/',
   },
 ]
 
@@ -89,26 +89,53 @@ const PageFooter = () => {
     }
   }
 
+  const year = new Date().getFullYear()
+
   return (
-    <footer className='page-footer'>
-      {contactInfo.map((value, index) => (
-        <SocialMediaItem key={index} {...value} handleMethod={handleMethod} />
-      ))}
+    <footer className='page-footer page-footer--modern'>
+      <div className='page-footer__glow' aria-hidden />
+      <div className='page-footer__inner container'>
+        <div className='page-footer__intro'>
+          <p className='page-footer__kicker'>Stay in touch</p>
+          <h2 className='page-footer__title'>Let's build something memorable</h2>
+          <p className='page-footer__subtitle'>Find me on the channels below — always happy to connect.</p>
+        </div>
+        <ul className='page-footer__social-grid'>
+          {contactInfo.map((item) => (
+            <li key={item.label} className='page-footer__social-cell'>
+              <SocialMediaItem {...item} handleMethod={handleMethod} />
+            </li>
+          ))}
+        </ul>
+        <div className='page-footer__bottom'>
+          <span className='page-footer__brand'>Shaiharyaar Ahmad</span>
+          <span className='page-footer__dot' aria-hidden />
+          <span className='page-footer__year'>© {year}</span>
+        </div>
+      </div>
     </footer>
   )
 }
 
 const SocialMediaItem = ({ label, tooltipText, icon, handleMethod, value }) => {
+  const onActivate = () => handleMethod(label, value)
   return (
-    <Tooltip placement={'top'} color={mediaColors[label]} title={tooltipText}>
-      <div className={`media-item ${label}`} onClick={() => handleMethod(label, value)}>
-        {icon}
-        <div
-          className={'item-hover-circle'}
-          style={{
-            backgroundColor: mediaColors[label],
-          }}
-        />
+    <Tooltip placement='top' color={mediaColors[label]} title={tooltipText}>
+      <div
+        className={`page-footer__social-card media-item ${label}`}
+        onClick={onActivate}
+        role='button'
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            onActivate()
+          }
+        }}
+      >
+        <span className='page-footer__social-icon'>{icon}</span>
+        <span className='page-footer__social-label'>{tooltipText.split(':')[0]}</span>
+        <div className='item-hover-circle' style={{ backgroundColor: mediaColors[label] }} />
       </div>
     </Tooltip>
   )
@@ -121,7 +148,8 @@ const mediaColors = {
   gmail: '#c71610',
   github: '#6e5494',
   linkedIn: '#0077b5',
-  stackoverflow: '#f48024',
+  /* Slate blue: distinct from the #f48024 orange in the Stack Overflow glyph */
+  stackoverflow: '#2f4f6e',
 }
 
 export default PageFooter

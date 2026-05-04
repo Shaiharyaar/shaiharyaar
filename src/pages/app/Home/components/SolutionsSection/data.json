@@ -3,20 +3,44 @@
     "img": "one-stream-live.png",
     "heading": "OneStream Live",
     "isImageFirst": false,
-    "description": "Engage with the power of OneStream Live, a cloud-based live streaming platform that seamlessly crafts professional live streams and enables multistreaming to over 45 social media platforms and the web concurrently. The website, studio, and mobile app collectively showcase a user-centric experience, combining intuitive design with seamless backend integration. This collaborative effort results in a dynamic and versatile streaming solution, enhancing the capabilities of content creators across diverse platforms.",
+    "role": "Frontend development",
+    "year": "2023 — present",
+    "stack": ["React", "TypeScript", "Redux", "WebSockets"],
+    "summary": "Live streaming studio and marketing surfaces for creators worldwide.",
+    "highlights": [
+      "Live streaming studio and marketing surfaces used by creators worldwide",
+      "Responsive layouts and performance-conscious UI for long session use"
+    ],
+    "description": "Engage with the power of OneStream Live, a cloud-based live streaming platform that seamlessly crafts professional live streams and enables multistreaming to over 45 social media platforms and the web concurrently. The website, studio, and mobile app collectively showcase a user-centric experience, combining intuitive design with seamless backend integration.",
     "link": "https://app.onestream.live/"
   },
   {
     "img": "dynamic-dnd.png",
     "heading": "Dynamic Drag and drop",
     "isImageFirst": true,
-    "description": "Experience a library-free project for streaming platforms with diverse layouts. Utilizing precise math, this project allows intuitive drag-and-drop functionality for easy element rearrangement. Whether on mobile or web, enjoy a responsive interface with manual precision, offering effortless switching between layouts. Elevate your streaming experience with this innovative solution.",
+    "role": "Product engineering",
+    "year": "2024",
+    "stack": ["React", "Canvas", "Layout math"],
+    "summary": "Library-free drag-and-drop with precise layout math and responsive presets.",
+    "highlights": [
+      "Library-free drag-and-drop with precise coordinate math",
+      "Responsive switching between layout presets on web and mobile"
+    ],
+    "description": "Experience a library-free project for streaming platforms with diverse layouts. Utilizing precise math, this project allows intuitive drag-and-drop functionality for easy element rearrangement.",
     "link": "https://dynamic-dnd.vercel.app/"
   },
   {
     "img": "worker-x.png",
     "heading": "WorkerX",
     "isImageFirst": false,
+    "role": "Full-stack UI",
+    "year": "2023",
+    "stack": ["Next.js", "React", "Scheduling UX"],
+    "summary": "Scheduling product: appointments, staff and customer flows, and bookings dashboards.",
+    "highlights": [
+      "Appointment-focused flows for staff and customers",
+      "Dashboard patterns for availability and bookings"
+    ],
     "description": "Elevate your scheduling efficiency and customer service excellence with WorkerX. This innovative project empowers you to boost appointment numbers while ensuring a top-notch customer experience.",
     "link": "https://workerx.vercel.app/"
   },
@@ -24,14 +48,30 @@
     "img": "hstc.png",
     "heading": "HSTC engineering",
     "isImageFirst": true,
-    "description": "A Vanguard in Defense and Security Solutions. Specialized in Military, Defense, and Security domains, we seamlessly integrate cutting-edge technology into our services and products. Prioritizing safety, satisfaction, and integrity, our software solutions redefine excellence in the Defense and Security sectors.",
+    "role": "Frontend",
+    "year": "2022",
+    "stack": ["React", "Enterprise UI", "Security sector"],
+    "summary": "Defense and security marketing with a clear hierarchy for technical audiences.",
+    "highlights": [
+      "Defense and security–oriented marketing and product presentation",
+      "Clear information hierarchy for technical audiences"
+    ],
+    "description": "A Vanguard in Defense and Security Solutions. Specialized in Military, Defense, and Security domains, we seamlessly integrate cutting-edge technology into our services and products.",
     "link": "https://hstc-frontend.vercel.app/"
   },
   {
     "img": "build-x.png",
     "heading": "BuildX",
     "isImageFirst": false,
-    "description": "Revolutionizing construction management. Streamline schedules, connect with your team effortlessly, and bid farewell to traditional tools. This construction software empowers your business with seamless project planning and tracking, complemented by efficient sales processes for lead management and rapid sign-ups. Financial tools ensure precise cash flow tracking and budget management down to the last penny. BuildX is your all-in-one solution for modernizing construction project management.",
+    "role": "Product UI",
+    "year": "2023",
+    "stack": ["React", "Construction domain", "Data-heavy views"],
+    "summary": "Construction software for schedules, leads, and cash-flow visibility.",
+    "highlights": [
+      "Schedules, leads, and financial tooling in one product narrative",
+      "Flows for project tracking and cash-flow visibility"
+    ],
+    "description": "Revolutionizing construction management. Streamline schedules, connect with your team effortlessly, and bid farewell to traditional tools. This construction software empowers your business with seamless project planning and tracking.",
     "link": "https://park-field.vercel.app/"
   }
 ]

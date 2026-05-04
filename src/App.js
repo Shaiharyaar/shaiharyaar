@@ -1,11 +1,14 @@
 import { WithAntdTheme } from 'global/hoc'
 import RouterConfig from 'navigation'
+import { ThemeProvider } from 'theme/ThemeProvider'
 
 const App = () => {
   return (
-    <WithAntdTheme>
-      <RouterConfig />
-    </WithAntdTheme>
+    <ThemeProvider>
+      <WithAntdTheme>
+        <RouterConfig />
+      </WithAntdTheme>
+    </ThemeProvider>
   )
 }
 

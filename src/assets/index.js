@@ -9,7 +9,6 @@ import PERSON_ICON from './directory/images/person.png'
 import LOCATION_ICON from './directory/images/location.png'
 import HERO_RIGHT_IMAGE from './directory/images/hero-right-image.png'
 import LEARN_MORE_IMAGE from './directory/images/learn-more.png'
-import CONTACT_US_IMAGE from './directory/images/contact-us.png'
 import TRUSTED_IMAGE from './directory/images/trusted.png'
 import FOOTER_LOGO from './directory/images/footer-logo.png'
 import CAMERA_ICON from './directory/images/Camera-Icon.png'
@@ -53,7 +52,6 @@ export {
   LOCATION_ICON,
   HERO_RIGHT_IMAGE,
   LEARN_MORE_IMAGE,
-  CONTACT_US_IMAGE,
   TRUSTED_IMAGE,
   FOOTER_LOGO,
   SEARCH_ICON_DASHBOARD_CARD,

@@ -7,3 +7,4 @@ export { default as EPrimeDataSection } from "./EPRimeDataSection";
 export { default as PlanSection } from "./PlanSection";
 export { default as ContactSection } from "./ContactSection";
 export { default as TrustedSection } from "./TrustedSection";
+export { default as SkillsMarqueeSection } from "./SkillsMarqueeSection";

@@ -10,9 +10,9 @@ const useHome = () => {
       if (isVisible) {
         clearTimeout(timeoutId.current);
         timeoutId.current = setTimeout(() => {
-          // window.location.hash = sectionName;
-          navigate(`/${sectionName}`);
-        }, 500);
+          const h = (sectionName || '#home').replace(/^#/, '') || 'home'
+          navigate({ pathname: '/', hash: h }, { replace: true })
+        }, 450)
       }
     },
     [navigate]

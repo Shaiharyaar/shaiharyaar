@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import 'theme/themes.css'
 import 'styles/scss/main.scss'
+import './animations/registerGsap'
 import reportWebVitals from './reportWebVitals'
 import { LayoutProvider } from 'context/Layout/Provider'
 
