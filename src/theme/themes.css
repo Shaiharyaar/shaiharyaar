@@ -159,6 +159,120 @@ body {
   color: var(--color-text);
 }
 
+/* Modern mobile nav in light site theme: charcoal panel + light type (readable, not pure black #06020e). */
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern {
+  background: linear-gradient(180deg, #2c2a32 0%, #242228 48%, #1f1d24 100%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: -24px 0 80px rgba(0, 0, 0, 0.45) !important;
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-shell::before {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.14), transparent 65%);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-shell::after {
+  background: radial-gradient(circle, rgba(192, 38, 211, 0.08), transparent 65%);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-header__brand {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-title {
+  background: linear-gradient(90deg, #f5f0ff 28%, rgba(212, 202, 232, 0.92) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-sub {
+  color: rgba(200, 190, 222, 0.78);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-close-btn.ant-btn {
+  color: rgba(220, 210, 240, 0.75);
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-close-btn.ant-btn:hover {
+  color: #faf5ff;
+  background: rgba(124, 58, 237, 0.22) !important;
+  border-color: rgba(167, 139, 250, 0.45) !important;
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-section-label {
+  color: rgba(196, 181, 255, 0.88);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-section-label::after {
+  background: linear-gradient(90deg, rgba(167, 139, 250, 0.35), transparent);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-link {
+  color: rgba(232, 228, 245, 0.88);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-link::after {
+  color: rgba(124, 58, 237, 0.12);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-link:hover {
+  color: #faf5ff;
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-link:hover::after {
+  color: rgba(124, 58, 237, 0.18);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-link .drawer-nav-link__chevron {
+  color: rgba(196, 181, 255, 0.95);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-link.active {
+  color: #faf5ff;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.28), rgba(124, 58, 237, 0.08));
+  box-shadow: inset 3px 0 0 #a78bfa;
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-nav-link.active::after {
+  color: rgba(124, 58, 237, 0.22);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-footer {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-theme-seg__label {
+  color: rgba(196, 181, 255, 0.82);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-theme-seg__track {
+  background: rgba(0, 0, 0, 0.32);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-theme-seg__btn {
+  color: rgba(200, 190, 220, 0.5);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-theme-seg__btn:hover {
+  color: #faf5ff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme='light'] .ant-drawer-content.page-navbar-drawer--modern .drawer-theme-seg__btn.is-active {
+  color: #faf5ff;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.98), rgba(139, 92, 246, 0.82));
+  box-shadow: 0 2px 16px rgba(124, 58, 237, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* Desktop nav pill: dark gray-violet (readable, softer than pure --color-text on glass). */
+:root[data-theme='light'] .page-navbar .nav-rail__link {
+  color: #2f283d;
+}
+
 @keyframes spark-twinkle {
   0%,
   100% {

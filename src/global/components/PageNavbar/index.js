@@ -168,38 +168,30 @@ const SmallScreenPageNavbar = ({ hash, handleNavClick, handlePageNavbarToggle, i
         </nav>
 
         <footer className='drawer-footer'>
-          <p className='drawer-footer__label'>Appearance</p>
-          <div className='drawer-theme-panel' role='radiogroup' aria-label='Color theme'>
-            <button
-              type='button'
-              role='radio'
-              aria-checked={theme === 'light'}
-              className={`drawer-theme-panel__opt ${theme === 'light' ? 'is-active' : ''}`}
-              onClick={() => setTheme('light')}
-            >
-              <span className='drawer-theme-panel__icon' aria-hidden>
+          <div className='drawer-theme-seg' role='radiogroup' aria-label='Color theme'>
+            <span className='drawer-theme-seg__label'>Theme</span>
+            <div className='drawer-theme-seg__track'>
+              <button
+                type='button'
+                role='radio'
+                aria-checked={theme === 'light'}
+                className={`drawer-theme-seg__btn ${theme === 'light' ? 'is-active' : ''}`}
+                onClick={() => setTheme('light')}
+                aria-label='Light theme'
+              >
                 <IconSun />
-              </span>
-              <span className='drawer-theme-panel__text'>
-                <span className='drawer-theme-panel__name'>Light</span>
-                <span className='drawer-theme-panel__hint'>Bright surfaces</span>
-              </span>
-            </button>
-            <button
-              type='button'
-              role='radio'
-              aria-checked={theme === 'dark'}
-              className={`drawer-theme-panel__opt ${theme === 'dark' ? 'is-active' : ''}`}
-              onClick={() => setTheme('dark')}
-            >
-              <span className='drawer-theme-panel__icon' aria-hidden>
+              </button>
+              <button
+                type='button'
+                role='radio'
+                aria-checked={theme === 'dark'}
+                className={`drawer-theme-seg__btn ${theme === 'dark' ? 'is-active' : ''}`}
+                onClick={() => setTheme('dark')}
+                aria-label='Dark theme'
+              >
                 <IconMoon />
-              </span>
-              <span className='drawer-theme-panel__text'>
-                <span className='drawer-theme-panel__name'>Dark</span>
-                <span className='drawer-theme-panel__hint'>Low glare</span>
-              </span>
-            </button>
+              </button>
+            </div>
           </div>
         </footer>
       </div>
