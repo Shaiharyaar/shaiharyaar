@@ -1,0 +1,109 @@
+.welcome-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 200000;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-bg, #f8f4ff);
+
+  &__strips {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &__strip {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    transform-origin: top center;
+    will-change: transform;
+    background-color: var(--color-primary, #7c3aed);
+  }
+
+  /* Left-half strips: darken toward the right (inner / center-facing fold). */
+  &__strip--edge-left {
+    background-image: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0.26) 0%,
+      rgba(0, 0, 0, 0.08) 28%,
+      transparent 52%
+    );
+    background-color: var(--color-primary, #7c3aed);
+  }
+
+  /* Right-half strips: darken toward the left (inner / center-facing fold). */
+  &__strip--edge-right {
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.26) 0%,
+      rgba(0, 0, 0, 0.08) 28%,
+      transparent 52%
+    );
+    background-color: var(--color-primary, #7c3aed);
+  }
+
+  /* Center strip: slight depth on both sides */
+  &__strip--center {
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.14) 0%,
+      transparent 35%,
+      transparent 65%,
+      rgba(0, 0, 0, 0.14) 100%
+    );
+    background-color: var(--color-primary, #7c3aed);
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    padding: 0 24px;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+  }
+}
+
+:root[data-theme='dark'] .welcome-curtain {
+  background: var(--color-bg, #0f0718);
+
+  .welcome-curtain__strip--edge-left {
+    background-image: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0.38) 0%,
+      rgba(0, 0, 0, 0.12) 30%,
+      transparent 55%
+    );
+  }
+
+  .welcome-curtain__strip--edge-right {
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.38) 0%,
+      rgba(0, 0, 0, 0.12) 30%,
+      transparent 55%
+    );
+  }
+
+  .welcome-curtain__strip--center {
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.22) 0%,
+      transparent 38%,
+      transparent 62%,
+      rgba(0, 0, 0, 0.22) 100%
+    );
+  }
+}

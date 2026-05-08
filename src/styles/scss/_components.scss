@@ -99,6 +99,25 @@
   }
 }
 
+@media (max-width: 767px) {
+  .custom-btn.ant-btn {
+    min-height: 44px;
+    height: auto !important;
+    font-size: $font-size-base !important;
+    line-height: 1.25 !important;
+    border-radius: 12px !important;
+    padding: 8px 14px !important;
+  }
+
+  .custom-btn.ant-btn.ant-btn-lg {
+    min-height: 44px;
+    height: auto !important;
+    font-size: $font-size-base !important;
+    line-height: 1.25 !important;
+    padding: 8px 14px !important;
+  }
+}
+
 .section-heading-wrapper {
   display: flex;
   flex-direction: column;

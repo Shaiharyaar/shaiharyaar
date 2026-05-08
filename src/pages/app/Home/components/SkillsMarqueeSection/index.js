@@ -7,7 +7,8 @@ import { useInView } from 'framer-motion'
 import data from './data.json'
 import SkillCardIcon from './SkillCardIcon'
 
-const SCROLL_FACTOR = 1.35
+const SCROLL_FACTOR_DESKTOP = 1.35
+const SCROLL_FACTOR_MOBILE = 1.82
 
 function splitSkillsIntoRows(skills) {
   const even = skills.length % 2 === 0 ? skills : skills.slice(0, -1)
@@ -44,34 +45,50 @@ const SkillsMarqueeSection = ({ onInView }) => {
       const t1 = trackRefs.current[1]
       if (!stage || !t0 || !t1) return undefined
 
+      const mm = gsap.matchMedia()
+
       const ctx = gsap.context(() => {
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: stage,
-              start: 'center center',
-              end: () =>
-                `+=${Math.round(Math.max(measureTrackDx(t0), measureTrackDx(t1), 8) * SCROLL_FACTOR)}`,
-              pin: true,
-              scrub: 1,
-              invalidateOnRefresh: true,
-              anticipatePin: 1,
-            },
-          })
-          .fromTo(t0, { x: 0 }, { x: () => -measureTrackDx(t0), ease: 'none', duration: 1 }, 0)
-          .fromTo(
-            t1,
-            { x: () => -measureTrackDx(t1) },
-            { x: 0, ease: 'none', duration: 1 },
-            0
-          )
+        const scrollDistance = (factor) =>
+          Math.round(Math.max(measureTrackDx(t0), measureTrackDx(t1), 8) * factor)
+
+        const buildPinnedMarquee = (scrollFactor) =>
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: stage,
+                start: 'center center',
+                end: () => `+=${scrollDistance(scrollFactor)}`,
+                pin: true,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                anticipatePin: 1,
+              },
+            })
+            .fromTo(t0, { x: 0 }, { x: () => -measureTrackDx(t0), ease: 'none', duration: 1 }, 0)
+            .fromTo(
+              t1,
+              { x: () => -measureTrackDx(t1) },
+              { x: 0, ease: 'none', duration: 1 },
+              0
+            )
+
+        mm.add('(min-width: 769px)', () => {
+          buildPinnedMarquee(SCROLL_FACTOR_DESKTOP)
+        })
+
+        mm.add('(max-width: 768px)', () => {
+          buildPinnedMarquee(SCROLL_FACTOR_MOBILE)
+        })
 
         requestAnimationFrame(() => {
           ScrollTrigger.refresh()
         })
       }, sectionRef)
 
-      return () => ctx.revert()
+      return () => {
+        mm.revert()
+        ctx.revert()
+      }
     },
     { dependencies: [reducedMotion] }
   )
@@ -101,9 +118,9 @@ const SkillsMarqueeSection = ({ onInView }) => {
                 className='skills-marquee__track'
                 aria-label={`Skills, row ${rowIndex + 1} of 2`}
               >
-                {[...row.items, ...row.items].map((item, i) => (
+                {row.items.map((item) => (
                   <article
-                    key={`${item.id}-loop-${i}`}
+                    key={item.id}
                     className={`skills-card${item.core ? ' skills-card--core' : ''}`}
                     data-skill-tier={item.core ? 'core' : undefined}
                   >
